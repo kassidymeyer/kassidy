@@ -405,10 +405,17 @@
 
         <div class="two-column-grid">
             <div class="card content-section">
-                <h2>🦕 Random Dinosaur</h2>
-                <div class="content-display">
-                    <img id="dinoImage" class="dino-image" src="" alt="Random Dinosaur">
-                    <p id="dinoName" class="dino-name">Click the button!</p>
+                <h2>🦕 Random Dinosaur Facts</h2>
+                <div class="content-display" style="min-height: 350px;">
+                    <div id="dinoEmoji" style="font-size: 8em; margin: 20px 0;">🦖</div>
+                    <p id="dinoName" class="dino-name" style="font-size: 1.8em; margin: 15px 0; font-weight: bold;">Click the button!</p>
+                    <div id="dinoFacts" style="text-align: left; padding: 20px; background: white; border-radius: 10px; margin-top: 15px; display: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">📍 <span id="fact1"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">📍 <span id="fact2"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">📍 <span id="fact3"></span></li>
+                        </ul>
+                    </div>
                 </div>
                 <button onclick="getNewDino()">Get New Dinosaur</button>
             </div>
@@ -471,47 +478,79 @@
     </div>
 
     <script>
-        // Dinosaur Generator with dinosaur emojis and fun facts
+        // Dinosaur Generator with facts and images
         const dinosaurs = [
             {
-                name: "🦖 Tyrannosaurus Rex",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Tyrannosaurus_Rex_Holotype.jpg/800px-Tyrannosaurus_Rex_Holotype.jpg"
+                name: "Tyrannosaurus Rex",
+                image: "https://cdn.pixabay.com/photo/2020/06/04/12/03/dinosaur-5258238_1280.jpg",
+                facts: [
+                    "Lived 68-66 million years ago during the Late Cretaceous period",
+                    "Could bite with a force of 12,800 pounds - the strongest of any land animal ever",
+                    "Despite its tiny arms, T-Rex was one of the largest carnivores, up to 40 feet long"
+                ]
             },
             {
-                name: "🦕 Brachiosaurus",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Giraffatitan_brancai_Skelett_Museum_f%C3%BCr_Naturkunde_Berlin.jpg/800px-Giraffatitan_brancai_Skelett_Museum_f%C3%BCr_Naturkunde_Berlin.jpg"
+                name: "Brachiosaurus",
+                image: "https://cdn.pixabay.com/photo/2017/01/20/15/06/dinosaur-1995069_1280.jpg",
+                facts: [
+                    "One of the tallest dinosaurs, reaching heights of 40-50 feet",
+                    "Weighed as much as 12 elephants (around 80 tons)",
+                    "Had nostrils on top of its head, once thought to be for underwater breathing"
+                ]
             },
             {
-                name: "🦴 Triceratops",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Triceratops_skeleton.jpg/800px-Triceratops_skeleton.jpg"
+                name: "Triceratops",
+                image: "https://cdn.pixabay.com/photo/2022/01/12/16/42/triceratops-6933645_1280.jpg",
+                facts: [
+                    "Name means 'three-horned face' in Greek",
+                    "Its frill could grow up to 7 feet across",
+                    "Lived alongside T-Rex and may have been its prey"
+                ]
             },
             {
-                name: "🦎 Velociraptor",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Velociraptor_dinoguy2.jpg/800px-Velociraptor_dinoguy2.jpg"
+                name: "Velociraptor",
+                image: "https://cdn.pixabay.com/photo/2020/04/30/12/41/velociraptor-5113837_1280.jpg",
+                facts: [
+                    "Actually only about 2 feet tall and 6 feet long - much smaller than in movies!",
+                    "Had feathers and was more closely related to birds than lizards",
+                    "Hunted in packs and was incredibly intelligent for a dinosaur"
+                ]
             },
             {
-                name: "🦴 Stegosaurus",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Stegosaurus_stenops_sophie_wiki_martyniuk.png/800px-Stegosaurus_stenops_sophie_wiki_martyniuk.png"
+                name: "Stegosaurus",
+                image: "https://cdn.pixabay.com/photo/2017/01/20/15/06/dinosaur-1995068_1280.jpg",
+                facts: [
+                    "Had a brain the size of a walnut despite being as big as a bus",
+                    "The plates on its back may have been used for temperature regulation",
+                    "Its tail spikes, called a 'thagomizer,' could be 3 feet long"
+                ]
             },
             {
-                name: "🦅 Pteranodon",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Pteranodon_longiceps_life_restoration.jpg/800px-Pteranodon_longiceps_life_restoration.jpg"
+                name: "Pteranodon",
+                image: "https://cdn.pixabay.com/photo/2017/09/25/21/35/pteranodon-2786926_1280.jpg",
+                facts: [
+                    "Not actually a dinosaur - it was a flying reptile!",
+                    "Had a wingspan of up to 23 feet",
+                    "Probably couldn't take off from the ground and launched from cliffs"
+                ]
             },
             {
-                name: "🐊 Spinosaurus",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Spinosaurus_2020_reconstruction.png/800px-Spinosaurus_2020_reconstruction.png"
+                name: "Spinosaurus",
+                image: "https://cdn.pixabay.com/photo/2020/06/04/12/04/dinosaur-5258239_1280.jpg",
+                facts: [
+                    "Larger than T-Rex, possibly the biggest carnivorous dinosaur ever",
+                    "Had a distinctive sail on its back up to 6 feet tall",
+                    "Recent evidence suggests it could swim and hunted fish"
+                ]
             },
             {
-                name: "🛡️ Ankylosaurus",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Ankylosaurus_magniventris_reconstruction.png/800px-Ankylosaurus_magniventris_reconstruction.png"
-            },
-            {
-                name: "🦕 Diplodocus",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Diplodocus_carnegii.jpg/800px-Diplodocus_carnegii.jpg"
-            },
-            {
-                name: "🦖 Allosaurus",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Allosaurus_Revised.jpg/800px-Allosaurus_Revised.jpg"
+                name: "Ankylosaurus",
+                image: "https://cdn.pixabay.com/photo/2022/01/12/16/42/ankylosaurus-6933644_1280.jpg",
+                facts: [
+                    "Covered in thick armor plates and spikes for protection",
+                    "Had a club tail that could swing with devastating force",
+                    "Even its eyelids were armored!"
+                ]
             }
         ];
 
@@ -520,10 +559,17 @@
             const dino = dinosaurs[randomIndex];
             const dinoImage = document.getElementById('dinoImage');
             const dinoName = document.getElementById('dinoName');
+            const dinoFacts = document.getElementById('dinoFacts');
             
             dinoImage.src = dino.image;
             dinoImage.style.display = 'block';
             dinoName.textContent = dino.name;
+            
+            // Display facts
+            document.getElementById('fact1').textContent = dino.facts[0];
+            document.getElementById('fact2').textContent = dino.facts[1];
+            document.getElementById('fact3').textContent = dino.facts[2];
+            dinoFacts.style.display = 'block';
             
             dinoImage.style.animation = 'none';
             setTimeout(() => {
