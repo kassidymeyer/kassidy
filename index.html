@@ -406,14 +406,13 @@
         <div class="two-column-grid">
             <div class="card content-section">
                 <h2>🦕 Random Dinosaur Facts</h2>
-                <div class="content-display" style="min-height: 350px;">
-                    <div id="dinoEmoji" style="font-size: 8em; margin: 20px 0;">🦖</div>
-                    <p id="dinoName" class="dino-name" style="font-size: 1.8em; margin: 15px 0; font-weight: bold;">Click the button!</p>
-                    <div id="dinoFacts" style="text-align: left; padding: 20px; background: white; border-radius: 10px; margin-top: 15px; display: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <div class="content-display" style="min-height: 250px; padding: 30px;">
+                    <p id="dinoName" class="dino-name" style="font-size: 2em; margin: 20px 0; font-weight: bold; color: #667eea;">Click the button!</p>
+                    <div id="dinoFacts" style="text-align: left; padding: 20px; background: white; border-radius: 10px; margin-top: 20px; display: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">📍 <span id="fact1"></span></li>
-                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">📍 <span id="fact2"></span></li>
-                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">📍 <span id="fact3"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">• <span id="fact1"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">• <span id="fact2"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">• <span id="fact3"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -471,6 +470,14 @@
             </div>
         </div>
 
+        <div class="card content-section">
+            <h2>🎉 Fun Game to Play with Friends</h2>
+            <div class="content-display" style="min-height: 150px; padding: 30px;">
+                <p id="partyPrompt" style="font-size: 1.5em; color: #667eea; font-weight: 500; line-height: 1.6; text-align: center;">Click the button to get started!</p>
+            </div>
+            <button onclick="getPartyPrompt()">Get New Prompt</button>
+        </div>
+
         <div class="visitor-counter">
             <h3>👥 Visitor Counter</h3>
             <div class="visitor-count" id="visitorCount">0</div>
@@ -482,7 +489,6 @@
         const dinosaurs = [
             {
                 name: "Tyrannosaurus Rex",
-                emoji: "🦖",
                 facts: [
                     "Lived 68-66 million years ago during the Late Cretaceous period",
                     "Could bite with a force of 12,800 pounds - the strongest of any land animal ever",
@@ -491,7 +497,6 @@
             },
             {
                 name: "Brachiosaurus",
-                emoji: "🦕",
                 facts: [
                     "One of the tallest dinosaurs, reaching heights of 40-50 feet",
                     "Weighed as much as 12 elephants (around 80 tons)",
@@ -500,7 +505,6 @@
             },
             {
                 name: "Triceratops",
-                emoji: "🦏",
                 facts: [
                     "Name means 'three-horned face' in Greek",
                     "Its frill could grow up to 7 feet across",
@@ -509,7 +513,6 @@
             },
             {
                 name: "Velociraptor",
-                emoji: "🦎",
                 facts: [
                     "Actually only about 2 feet tall and 6 feet long - much smaller than in movies!",
                     "Had feathers and was more closely related to birds than lizards",
@@ -518,7 +521,6 @@
             },
             {
                 name: "Stegosaurus",
-                emoji: "🦴",
                 facts: [
                     "Had a brain the size of a walnut despite being as big as a bus",
                     "The plates on its back may have been used for temperature regulation",
@@ -527,7 +529,6 @@
             },
             {
                 name: "Pteranodon",
-                emoji: "🦅",
                 facts: [
                     "Not actually a dinosaur - it was a flying reptile!",
                     "Had a wingspan of up to 23 feet",
@@ -536,7 +537,6 @@
             },
             {
                 name: "Spinosaurus",
-                emoji: "🐊",
                 facts: [
                     "Larger than T-Rex, possibly the biggest carnivorous dinosaur ever",
                     "Had a distinctive sail on its back up to 6 feet tall",
@@ -545,7 +545,6 @@
             },
             {
                 name: "Ankylosaurus",
-                emoji: "🛡️",
                 facts: [
                     "Covered in thick armor plates and spikes for protection",
                     "Had a club tail that could swing with devastating force",
@@ -559,10 +558,6 @@
             const randomIndex = Math.floor(Math.random() * dinosaurs.length);
             const dino = dinosaurs[randomIndex];
             
-            // Update the emoji
-            const dinoEmoji = document.getElementById('dinoEmoji');
-            dinoEmoji.textContent = dino.emoji;
-            
             // Update the name
             const dinoName = document.getElementById('dinoName');
             dinoName.textContent = dino.name;
@@ -575,6 +570,35 @@
             // Show the facts section
             const dinoFacts = document.getElementById('dinoFacts');
             dinoFacts.style.display = 'block';
+        }
+
+        // Party game prompts
+        const partyPrompts = [
+            "Tell the story of your first kiss",
+            "Finish the drink you have in front of you",
+            "Share your most embarrassing moment from high school",
+            "Do your best impression of someone in the group",
+            "Tell us about a time you got caught doing something you shouldn't have",
+            "Share a secret you've never told anyone here",
+            "Call someone you haven't talked to in years",
+            "Show us the last photo in your camera roll",
+            "Tell us about your biggest fear",
+            "Share the most adventurous thing you've ever done",
+            "Describe your dream date in detail",
+            "Tell us about a time you lied and got away with it",
+            "Share your most unpopular opinion",
+            "Tell us about your worst date ever",
+            "Do 10 pushups right now",
+            "Share a guilty pleasure you're embarrassed about",
+            "Tell us about a time you broke the rules",
+            "Describe your celebrity crush and why",
+            "Share the weirdest dream you've ever had",
+            "Tell us something you've never told your parents"
+        ];
+
+        function getPartyPrompt() {
+            const randomPrompt = partyPrompts[Math.floor(Math.random() * partyPrompts.length)];
+            document.getElementById('partyPrompt').textContent = randomPrompt;
         }
 
         // Would You Rather Game
