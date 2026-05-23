@@ -504,15 +504,19 @@
         <div class="two-column-grid">
             <div class="card content-section">
                 <h2>🦕 Random Dinosaur Facts</h2>
-                <div class="content-display" style="min-height: 400px; padding: 30px;">
-                    <img id="dinoImage" style="max-width: 100%; max-height: 200px; border-radius: 10px; margin-bottom: 15px; display: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Dinosaur">
-                    <p id="dinoName" class="dino-name" style="font-size: 2em; margin: 20px 0; font-weight: bold; color: #667eea;">Click the button!</p>
+                <div class="content-display" style="min-height: 350px; padding: 30px;">
+                    <p id="dinoName" class="dino-name" style="font-size: 2.2em; margin: 20px 0; font-weight: bold; color: #667eea;">Click the button!</p>
                     <div id="dinoFacts" style="text-align: left; padding: 20px; background: white; border-radius: 10px; margin-top: 20px; display: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">• <span id="fact1"></span></li>
-                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">• <span id="fact2"></span></li>
-                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">• <span id="fact3"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">🦴 <span id="fact1"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">🦴 <span id="fact2"></span></li>
+                            <li style="padding: 10px 0; color: #2c3e50; font-size: 1.05em; line-height: 1.6;">🦴 <span id="fact3"></span></li>
                         </ul>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a id="dinoWikiLink" href="#" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; transition: transform 0.3s ease;">
+                                📖 See Images & More on Wikipedia
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <button onclick="getNewDino()">Get New Dinosaur</button>
@@ -1038,11 +1042,6 @@
             const randomIndex = Math.floor(Math.random() * dinosaurs.length);
             const dino = dinosaurs[randomIndex];
             
-            // Update the image
-            const dinoImage = document.getElementById('dinoImage');
-            dinoImage.src = dino.image;
-            dinoImage.style.display = 'block';
-            
             // Update the name
             const dinoName = document.getElementById('dinoName');
             dinoName.textContent = dino.name;
@@ -1051,6 +1050,11 @@
             document.getElementById('fact1').textContent = dino.facts[0];
             document.getElementById('fact2').textContent = dino.facts[1];
             document.getElementById('fact3').textContent = dino.facts[2];
+            
+            // Update Wikipedia link
+            const wikiLink = document.getElementById('dinoWikiLink');
+            const wikiName = dino.name.replace(/ /g, '_');
+            wikiLink.href = `https://en.wikipedia.org/wiki/${wikiName}`;
             
             // Show the facts section
             const dinoFacts = document.getElementById('dinoFacts');
