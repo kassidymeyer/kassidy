@@ -478,11 +478,11 @@
     </div>
 
     <script>
-        // Dinosaur Generator with facts and images
+        // Random Dinosaur Facts Generator
         const dinosaurs = [
             {
                 name: "Tyrannosaurus Rex",
-                image: "https://cdn.pixabay.com/photo/2020/06/04/12/03/dinosaur-5258238_1280.jpg",
+                emoji: "🦖",
                 facts: [
                     "Lived 68-66 million years ago during the Late Cretaceous period",
                     "Could bite with a force of 12,800 pounds - the strongest of any land animal ever",
@@ -491,7 +491,7 @@
             },
             {
                 name: "Brachiosaurus",
-                image: "https://cdn.pixabay.com/photo/2017/01/20/15/06/dinosaur-1995069_1280.jpg",
+                emoji: "🦕",
                 facts: [
                     "One of the tallest dinosaurs, reaching heights of 40-50 feet",
                     "Weighed as much as 12 elephants (around 80 tons)",
@@ -500,7 +500,7 @@
             },
             {
                 name: "Triceratops",
-                image: "https://cdn.pixabay.com/photo/2022/01/12/16/42/triceratops-6933645_1280.jpg",
+                emoji: "🦏",
                 facts: [
                     "Name means 'three-horned face' in Greek",
                     "Its frill could grow up to 7 feet across",
@@ -509,7 +509,7 @@
             },
             {
                 name: "Velociraptor",
-                image: "https://cdn.pixabay.com/photo/2020/04/30/12/41/velociraptor-5113837_1280.jpg",
+                emoji: "🦎",
                 facts: [
                     "Actually only about 2 feet tall and 6 feet long - much smaller than in movies!",
                     "Had feathers and was more closely related to birds than lizards",
@@ -518,7 +518,7 @@
             },
             {
                 name: "Stegosaurus",
-                image: "https://cdn.pixabay.com/photo/2017/01/20/15/06/dinosaur-1995068_1280.jpg",
+                emoji: "🦴",
                 facts: [
                     "Had a brain the size of a walnut despite being as big as a bus",
                     "The plates on its back may have been used for temperature regulation",
@@ -527,7 +527,7 @@
             },
             {
                 name: "Pteranodon",
-                image: "https://cdn.pixabay.com/photo/2017/09/25/21/35/pteranodon-2786926_1280.jpg",
+                emoji: "🦅",
                 facts: [
                     "Not actually a dinosaur - it was a flying reptile!",
                     "Had a wingspan of up to 23 feet",
@@ -536,7 +536,7 @@
             },
             {
                 name: "Spinosaurus",
-                image: "https://cdn.pixabay.com/photo/2020/06/04/12/04/dinosaur-5258239_1280.jpg",
+                emoji: "🐊",
                 facts: [
                     "Larger than T-Rex, possibly the biggest carnivorous dinosaur ever",
                     "Had a distinctive sail on its back up to 6 feet tall",
@@ -545,7 +545,7 @@
             },
             {
                 name: "Ankylosaurus",
-                image: "https://cdn.pixabay.com/photo/2022/01/12/16/42/ankylosaurus-6933644_1280.jpg",
+                emoji: "🛡️",
                 facts: [
                     "Covered in thick armor plates and spikes for protection",
                     "Had a club tail that could swing with devastating force",
@@ -555,26 +555,26 @@
         ];
 
         function getNewDino() {
+            // Pick a random dinosaur
             const randomIndex = Math.floor(Math.random() * dinosaurs.length);
             const dino = dinosaurs[randomIndex];
-            const dinoImage = document.getElementById('dinoImage');
-            const dinoName = document.getElementById('dinoName');
-            const dinoFacts = document.getElementById('dinoFacts');
             
-            dinoImage.src = dino.image;
-            dinoImage.style.display = 'block';
+            // Update the emoji
+            const dinoEmoji = document.getElementById('dinoEmoji');
+            dinoEmoji.textContent = dino.emoji;
+            
+            // Update the name
+            const dinoName = document.getElementById('dinoName');
             dinoName.textContent = dino.name;
             
-            // Display facts
+            // Update the facts
             document.getElementById('fact1').textContent = dino.facts[0];
             document.getElementById('fact2').textContent = dino.facts[1];
             document.getElementById('fact3').textContent = dino.facts[2];
-            dinoFacts.style.display = 'block';
             
-            dinoImage.style.animation = 'none';
-            setTimeout(() => {
-                dinoImage.style.animation = 'fadeIn 0.5s ease-out';
-            }, 10);
+            // Show the facts section
+            const dinoFacts = document.getElementById('dinoFacts');
+            dinoFacts.style.display = 'block';
         }
 
         // Would You Rather Game
