@@ -1,2 +1,398 @@
-<h1>Kassidy's Website</h1>
-<p>Hello everyone.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassidy's Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+        }
+
+        .welcome {
+            color: white;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .featured-quote {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-quote:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .featured-quote h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .featured-quote p {
+            color: white;
+            font-size: 1.3em;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .quote-section {
+            text-align: center;
+        }
+
+        .quote-display {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 1.2em;
+            font-style: italic;
+            color: #333;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .quote-display:hover {
+            background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .game-section {
+            text-align: center;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .color-tile {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .color-tile:hover {
+            transform: scale(1.1);
+            border-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .color-tile:active {
+            transform: scale(0.95);
+        }
+
+        .score-display {
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .visitor-counter {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .visitor-counter:hover {
+            transform: scale(1.02);
+        }
+
+        .visitor-counter h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .visitor-count {
+            font-size: 2.5em;
+            color: #ff6b6b;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .featured-quote h2 {
+                font-size: 1.5em;
+            }
+
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kassidy's Website</h1>
+            <p class="welcome">Hello everyone.</p>
+        </header>
+
+        <div class="featured-quote">
+            <h2>✨ Featured Quote ✨</h2>
+            <p>"a decimal need not be an integer"</p>
+        </div>
+
+        <div class="card quote-section">
+            <h2>🎲 Random Math Quote</h2>
+            <div class="quote-display" id="quoteDisplay">Click the button to get a math quote!</div>
+            <button onclick="getNewQuote()">Get New Quote</button>
+        </div>
+
+        <div class="card game-section">
+            <h2>🎮 Color Matching Game</h2>
+            <p>Click on tiles that match the target color!</p>
+            <div class="score-display">Score: <span id="score">0</span></div>
+            <div id="targetColor" style="width: 100px; height: 100px; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
+            <div class="game-board" id="gameBoard"></div>
+            <button onclick="startNewGame()">New Game</button>
+        </div>
+
+        <div class="visitor-counter">
+            <h3>👥 Visitor Counter</h3>
+            <div class="visitor-count" id="visitorCount">0</div>
+        </div>
+    </div>
+
+    <script>
+        // Math Quotes
+        const mathQuotes = [
+            "Mathematics is the language in which God has written the universe. - Galileo Galilei",
+            "Pure mathematics is, in its way, the poetry of logical ideas. - Albert Einstein",
+            "Mathematics is not about numbers, equations, or algorithms: it is about understanding. - William Paul Thurston",
+            "The essence of mathematics is not to make simple things complicated, but to make complicated things simple. - S. Gudder",
+            "Mathematics is the music of reason. - James Joseph Sylvester",
+            "In mathematics, you don't understand things. You just get used to them. - John von Neumann",
+            "Mathematics knows no races or geographic boundaries; for mathematics, the cultural world is one country. - David Hilbert",
+            "The only way to learn mathematics is to do mathematics. - Paul Halmos",
+            "Mathematics is the most beautiful and most powerful creation of the human spirit. - Stefan Banach",
+            "Life is a math equation. In order to gain the most, you have to know how to convert negatives into positives. - Anonymous"
+        ];
+
+        function getNewQuote() {
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const randomIndex = Math.floor(Math.random() * mathQuotes.length);
+            quoteDisplay.textContent = mathQuotes[randomIndex];
+            quoteDisplay.style.animation = 'none';
+            setTimeout(() => {
+                quoteDisplay.style.animation = 'fadeIn 0.5s ease-out';
+            }, 10);
+        }
+
+        // Color Matching Game
+        let score = 0;
+        let targetColor = '';
+        let colors = [];
+
+        function generateRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        function startNewGame() {
+            score = 0;
+            document.getElementById('score').textContent = score;
+            
+            // Generate target color
+            targetColor = generateRandomColor();
+            document.getElementById('targetColor').style.backgroundColor = targetColor;
+            
+            // Generate color tiles
+            colors = [targetColor];
+            for (let i = 0; i < 11; i++) {
+                colors.push(generateRandomColor());
+            }
+            
+            // Shuffle colors
+            colors.sort(() => Math.random() - 0.5);
+            
+            // Create tiles
+            const gameBoard = document.getElementById('gameBoard');
+            gameBoard.innerHTML = '';
+            
+            colors.forEach(color => {
+                const tile = document.createElement('div');
+                tile.className = 'color-tile';
+                tile.style.backgroundColor = color;
+                tile.onclick = () => checkColor(color, tile);
+                gameBoard.appendChild(tile);
+            });
+        }
+
+        function checkColor(clickedColor, tile) {
+            if (clickedColor === targetColor) {
+                score += 10;
+                document.getElementById('score').textContent = score;
+                tile.style.border = '3px solid gold';
+                tile.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    startNewGame();
+                }, 500);
+            } else {
+                score = Math.max(0, score - 5);
+                document.getElementById('score').textContent = score;
+                tile.style.border = '3px solid red';
+                setTimeout(() => {
+                    tile.style.border = '3px solid transparent';
+                }, 300);
+            }
+        }
+
+        // Visitor Counter
+        function updateVisitorCount() {
+            let count = localStorage.getItem('visitorCount');
+            if (count === null) {
+                count = 0;
+            }
+            count = parseInt(count) + 1;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            updateVisitorCount();
+            startNewGame();
+            getNewQuote();
+        };
+    </script>
+</body>
+</html>
