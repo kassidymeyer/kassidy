@@ -504,7 +504,8 @@
         <div class="two-column-grid">
             <div class="card content-section">
                 <h2>🦕 Random Dinosaur Facts</h2>
-                <div class="content-display" style="min-height: 250px; padding: 30px;">
+                <div class="content-display" style="min-height: 400px; padding: 30px;">
+                    <img id="dinoImage" style="max-width: 100%; max-height: 200px; border-radius: 10px; margin-bottom: 15px; display: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" alt="Dinosaur">
                     <p id="dinoName" class="dino-name" style="font-size: 2em; margin: 20px 0; font-weight: bold; color: #667eea;">Click the button!</p>
                     <div id="dinoFacts" style="text-align: left; padding: 20px; background: white; border-radius: 10px; margin-top: 20px; display: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         <ul style="list-style: none; padding: 0;">
@@ -600,6 +601,7 @@
         const dinosaurs = [
             {
                 name: "Tyrannosaurus Rex",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Tyrannosaurus-rex.jpg",
                 facts: [
                     "Lived 68-66 million years ago during the Late Cretaceous period",
                     "Could bite with a force of 12,800 pounds - the strongest of any land animal ever",
@@ -608,6 +610,7 @@
             },
             {
                 name: "Brachiosaurus",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Brachiosaurus.jpg",
                 facts: [
                     "One of the tallest dinosaurs, reaching heights of 40-50 feet",
                     "Weighed as much as 12 elephants (around 80 tons)",
@@ -616,6 +619,7 @@
             },
             {
                 name: "Triceratops",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Triceratops.jpg",
                 facts: [
                     "Name means 'three-horned face' in Greek",
                     "Its frill could grow up to 7 feet across",
@@ -624,6 +628,7 @@
             },
             {
                 name: "Velociraptor",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Velociraptor.jpg",
                 facts: [
                     "Actually only about 2 feet tall and 6 feet long - much smaller than in movies!",
                     "Had feathers and was more closely related to birds than lizards",
@@ -632,6 +637,7 @@
             },
             {
                 name: "Stegosaurus",
+                image: "https://cdn.britannica.com/91/4391-050-EE35384B/Stegosaurus.jpg",
                 facts: [
                     "Had a brain the size of a walnut despite being as big as a bus",
                     "The plates on its back may have been used for temperature regulation",
@@ -640,6 +646,7 @@
             },
             {
                 name: "Pteranodon",
+                image: "https://cdn.britannica.com/62/129162-050-2EE0BF5A/Pteranodon.jpg",
                 facts: [
                     "Not actually a dinosaur - it was a flying reptile!",
                     "Had a wingspan of up to 23 feet",
@@ -648,6 +655,7 @@
             },
             {
                 name: "Spinosaurus",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Spinosaurus.jpg",
                 facts: [
                     "Larger than T-Rex, possibly the biggest carnivorous dinosaur ever",
                     "Had a distinctive sail on its back up to 6 feet tall",
@@ -656,10 +664,371 @@
             },
             {
                 name: "Ankylosaurus",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Ankylosaurus.jpg",
                 facts: [
                     "Covered in thick armor plates and spikes for protection",
                     "Had a club tail that could swing with devastating force",
                     "Even its eyelids were armored!"
+                ]
+            },
+            {
+                name: "Diplodocus",
+                image: "https://cdn.britannica.com/56/4356-050-69B4BC4D/Diplodocus.jpg",
+                facts: [
+                    "One of the longest dinosaurs at up to 90 feet from head to tail",
+                    "Its whip-like tail could break the sound barrier when cracked",
+                    "Despite its size, it had a tiny head and simple teeth for eating plants"
+                ]
+            },
+            {
+                name: "Allosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Allosaurus.jpg",
+                facts: [
+                    "The most common large predator in North America during the Jurassic period",
+                    "Could open its jaws extremely wide to take massive bites",
+                    "Hunted in packs to take down prey much larger than itself"
+                ]
+            },
+            {
+                name: "Parasaurolophus",
+                image: "https://cdn.britannica.com/91/4391-050-EE35384B/Parasaurolophus.jpg",
+                facts: [
+                    "Had a distinctive curved crest on its head up to 6 feet long",
+                    "Could make loud, trumpet-like sounds through its crest",
+                    "Lived in herds and was a peaceful plant-eater"
+                ]
+            },
+            {
+                name: "Carnotaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Carnotaurus.jpg",
+                facts: [
+                    "Name means 'meat-eating bull' due to its distinctive horns",
+                    "Had extremely short arms, even shorter than T-Rex",
+                    "Could run very fast, possibly up to 35 mph"
+                ]
+            },
+            {
+                name: "Pachycephalosaurus",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Pachycephalosaurus.jpg",
+                facts: [
+                    "Had a dome-shaped skull up to 10 inches thick",
+                    "May have used its thick skull for head-butting contests",
+                    "One of the last dinosaurs to exist before the mass extinction"
+                ]
+            },
+            {
+                name: "Iguanodon",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Iguanodon.jpg",
+                facts: [
+                    "One of the first dinosaurs ever discovered and named (1825)",
+                    "Had a distinctive thumb spike used for defense",
+                    "Could walk on both two legs and four legs"
+                ]
+            },
+            {
+                name: "Mosasaurus",
+                image: "https://cdn.britannica.com/62/129162-050-2EE0BF5A/Mosasaurus.jpg",
+                facts: [
+                    "Not a dinosaur but a massive marine reptile that lived alongside them",
+                    "Could grow up to 50 feet long and ruled the oceans",
+                    "Had a double-hinged jaw to swallow large prey whole"
+                ]
+            },
+            {
+                name: "Archaeopteryx",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Archaeopteryx.jpg",
+                facts: [
+                    "Often called the 'first bird' - a transitional fossil between dinosaurs and birds",
+                    "Had both feathers and teeth, plus claws on its wings",
+                    "Could probably fly, but not as well as modern birds"
+                ]
+            },
+            {
+                name: "Compsognathus",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Compsognathus.jpg",
+                facts: [
+                    "One of the smallest dinosaurs, about the size of a chicken",
+                    "Was a fast runner and hunted small prey like lizards and insects",
+                    "Lived during the same time as the much larger dinosaurs"
+                ]
+            },
+            {
+                name: "Deinonychus",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Deinonychus.jpg",
+                facts: [
+                    "Had a large sickle-shaped claw on each foot for slashing prey",
+                    "Hunted in packs and was highly intelligent",
+                    "The discovery of this dinosaur changed how scientists viewed dinosaurs"
+                ]
+            },
+            {
+                name: "Argentinosaurus",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Argentinosaurus.jpg",
+                facts: [
+                    "One of the largest land animals ever, weighing up to 100 tons",
+                    "Could grow up to 115 feet long",
+                    "Each vertebra in its spine was over 5 feet tall"
+                ]
+            },
+            {
+                name: "Giganotosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Giganotosaurus.jpg",
+                facts: [
+                    "Slightly larger than T-Rex, one of the biggest carnivores ever",
+                    "Had a skull over 6 feet long with serrated teeth",
+                    "Lived in South America during the Cretaceous period"
+                ]
+            },
+            {
+                name: "Kentrosaurus",
+                image: "https://cdn.britannica.com/91/4391-050-EE35384B/Kentrosaurus.jpg",
+                facts: [
+                    "Similar to Stegosaurus but with more spikes and fewer plates",
+                    "Had long spikes on its shoulders and tail for defense",
+                    "Lived in Africa during the Late Jurassic period"
+                ]
+            },
+            {
+                name: "Oviraptor",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Oviraptor.jpg",
+                facts: [
+                    "Name means 'egg thief' but it was actually protecting its own eggs",
+                    "Had a distinctive crest on its head and a beak-like mouth",
+                    "Was covered in feathers and looked very bird-like"
+                ]
+            },
+            {
+                name: "Therizinosaurus",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Therizinosaurus.jpg",
+                facts: [
+                    "Had the longest claws of any animal ever - up to 3 feet long",
+                    "Despite its scary claws, it was actually a plant-eater",
+                    "Walked on two legs and had a pot belly"
+                ]
+            },
+            {
+                name: "Quetzalcoatlus",
+                image: "https://cdn.britannica.com/62/129162-050-2EE0BF5A/Quetzalcoatlus.jpg",
+                facts: [
+                    "The largest flying animal ever with a wingspan of 36-39 feet",
+                    "Not a dinosaur but a pterosaur that lived alongside them",
+                    "Was as tall as a giraffe when standing on the ground"
+                ]
+            },
+            {
+                name: "Dilophosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Dilophosaurus.jpg",
+                facts: [
+                    "Had two distinctive crests on its head",
+                    "Contrary to movies, it couldn't spit venom and had no frill",
+                    "Was one of the earliest large predatory dinosaurs"
+                ]
+            },
+            {
+                name: "Gallimimus",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Gallimimus.jpg",
+                facts: [
+                    "Name means 'chicken mimic' due to its bird-like appearance",
+                    "Could run very fast, possibly up to 40 mph",
+                    "Had no teeth and likely ate plants, insects, and small animals"
+                ]
+            },
+            {
+                name: "Styracosaurus",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Styracosaurus.jpg",
+                facts: [
+                    "Had a spectacular frill with long spikes radiating from it",
+                    "Also had a large horn on its nose for defense",
+                    "Lived in herds in North America during the Late Cretaceous"
+                ]
+            },
+            {
+                name: "Microraptor",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Microraptor.jpg",
+                facts: [
+                    "Had four wings - feathers on both arms and legs",
+                    "Could glide between trees in forests",
+                    "One of the smallest dinosaurs, about the size of a crow"
+                ]
+            },
+            {
+                name: "Ceratosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Ceratosaurus.jpg",
+                facts: [
+                    "Had a distinctive horn on its nose and bony ridges above its eyes",
+                    "Was a medium-sized predator that lived alongside Allosaurus",
+                    "Had unusually flexible tail that may have helped it swim"
+                ]
+            },
+            {
+                name: "Edmontosaurus",
+                image: "https://cdn.britannica.com/91/4391-050-EE35384B/Edmontosaurus.jpg",
+                facts: [
+                    "One of the largest duck-billed dinosaurs",
+                    "Had over 1,000 teeth for grinding tough plants",
+                    "Lived in large herds for protection from predators"
+                ]
+            },
+            {
+                name: "Carcharodontosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Carcharodontosaurus.jpg",
+                facts: [
+                    "Name means 'shark-toothed lizard' due to its serrated teeth",
+                    "Was one of the largest carnivores, rivaling T-Rex in size",
+                    "Lived in Africa and hunted massive sauropods"
+                ]
+            },
+            {
+                name: "Protoceratops",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Protoceratops.jpg",
+                facts: [
+                    "A small ancestor of Triceratops, about the size of a sheep",
+                    "Had a beak and a small frill but no horns",
+                    "Many fossils found with eggs, showing it nested in colonies"
+                ]
+            },
+            {
+                name: "Baryonyx",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Baryonyx.jpg",
+                facts: [
+                    "Had a crocodile-like snout and large thumb claws",
+                    "Ate fish and used its claws to catch them",
+                    "One of the few dinosaurs known to eat fish"
+                ]
+            },
+            {
+                name: "Corythosaurus",
+                image: "https://cdn.britannica.com/91/4391-050-EE35384B/Corythosaurus.jpg",
+                facts: [
+                    "Had a helmet-like crest on its head",
+                    "Could make loud sounds through hollow chambers in its crest",
+                    "Lived in herds and was a duck-billed dinosaur"
+                ]
+            },
+            {
+                name: "Acrocanthosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Acrocanthosaurus.jpg",
+                facts: [
+                    "Had a ridge of tall spines along its back forming a sail or hump",
+                    "Was one of the largest predators in North America",
+                    "Could grow up to 38 feet long"
+                ]
+            },
+            {
+                name: "Maiasaura",
+                image: "https://cdn.britannica.com/91/4391-050-EE35384B/Maiasaura.jpg",
+                facts: [
+                    "Name means 'good mother lizard' because it cared for its young",
+                    "Built nests and brought food to its babies",
+                    "Lived in huge nesting colonies with thousands of individuals"
+                ]
+            },
+            {
+                name: "Utahraptor",
+                image: "https://cdn.britannica.com/49/75449-050-47F4D1C8/Utahraptor.jpg",
+                facts: [
+                    "The largest raptor dinosaur, about 23 feet long",
+                    "Had a 9-inch sickle claw on each foot",
+                    "Was the closest real-life equivalent to Jurassic Park's Velociraptors"
+                ]
+            },
+            {
+                name: "Sauropelta",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Sauropelta.jpg",
+                facts: [
+                    "An armored dinosaur covered in bony plates and spikes",
+                    "Had large spikes on its shoulders for defense",
+                    "Was an early relative of Ankylosaurus"
+                ]
+            },
+            {
+                name: "Dracorex",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Dracorex.jpg",
+                facts: [
+                    "Name means 'dragon king' due to its spiky skull",
+                    "May actually be a juvenile Pachycephalosaurus",
+                    "Had numerous horns and bumps on its head"
+                ]
+            },
+            {
+                name: "Suchomimus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Suchomimus.jpg",
+                facts: [
+                    "Had a crocodile-like snout for catching fish",
+                    "Related to Spinosaurus but without the large sail",
+                    "Had a large thumb claw for spearing fish"
+                ]
+            },
+            {
+                name: "Amargasaurus",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Amargasaurus.jpg",
+                facts: [
+                    "Had two parallel rows of tall spines along its neck and back",
+                    "The spines may have supported a sail or been covered in skin",
+                    "Was a relatively small sauropod at about 30 feet long"
+                ]
+            },
+            {
+                name: "Torosaurus",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Torosaurus.jpg",
+                facts: [
+                    "Had one of the largest skulls of any land animal - up to 9 feet long",
+                    "Its frill had large openings to reduce weight",
+                    "May actually be an older Triceratops with a fully developed frill"
+                ]
+            },
+            {
+                name: "Concavenator",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Concavenator.jpg",
+                facts: [
+                    "Had a distinctive hump on its back in front of its hips",
+                    "May have had primitive feathers or quill-like structures",
+                    "Was a medium-sized predator from Spain"
+                ]
+            },
+            {
+                name: "Psittacosaurus",
+                image: "https://cdn.britannica.com/40/4340-050-0F56D1DB/Psittacosaurus.jpg",
+                facts: [
+                    "Name means 'parrot lizard' due to its beak-like mouth",
+                    "Was an early relative of Triceratops",
+                    "Had bristle-like structures on its tail"
+                ]
+            },
+            {
+                name: "Cryolophosaurus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Cryolophosaurus.jpg",
+                facts: [
+                    "The first carnivorous dinosaur found in Antarctica",
+                    "Had a distinctive pompadour-like crest on its head",
+                    "Lived when Antarctica was much warmer and forested"
+                ]
+            },
+            {
+                name: "Nigersaurus",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Nigersaurus.jpg",
+                facts: [
+                    "Had over 500 teeth arranged in rows like a conveyor belt",
+                    "Its mouth was shaped like a vacuum cleaner for eating plants",
+                    "Constantly replaced its teeth - a new set every 14 days"
+                ]
+            },
+            {
+                name: "Yutyrannus",
+                image: "https://cdn.britannica.com/02/155302-050-47E4E8B8/Yutyrannus.jpg",
+                facts: [
+                    "The largest known feathered dinosaur at 30 feet long",
+                    "Was covered in long, filament-like feathers",
+                    "Related to T-Rex but lived 60 million years earlier"
+                ]
+            },
+            {
+                name: "Dreadnoughtus",
+                image: "https://cdn.britannica.com/25/194125-050-A5B6A3F8/Dreadnoughtus.jpg",
+                facts: [
+                    "One of the largest land animals ever, weighing about 65 tons",
+                    "Name means 'fears nothing' due to its massive size",
+                    "Had a 37-foot-long neck and a 30-foot-long tail"
                 ]
             }
         ];
@@ -668,6 +1037,11 @@
             // Pick a random dinosaur
             const randomIndex = Math.floor(Math.random() * dinosaurs.length);
             const dino = dinosaurs[randomIndex];
+            
+            // Update the image
+            const dinoImage = document.getElementById('dinoImage');
+            dinoImage.src = dino.image;
+            dinoImage.style.display = 'block';
             
             // Update the name
             const dinoName = document.getElementById('dinoName');
