@@ -129,6 +129,13 @@
             background-origin: border-box;
             background-clip: padding-box, border-box;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 500px;
+        }
+
+        .card .content-display {
+            flex: 1;
         }
 
         .card::before {
@@ -593,6 +600,21 @@
                 <p style="color: #d4af37; font-size: 1.3em; margin-top: 50px;" id="paintingPlaceholder">Click the button to view a masterpiece!</p>
             </div>
             <button onclick="getNewPainting()">Show New Painting</button>
+        </div>
+
+        <div class="card content-section">
+            <h2>🗼 Visit Coit Tower</h2>
+            <div class="content-display" style="min-height: 200px; padding: 30px;">
+                <p style="font-size: 1.3em; color: #667eea; margin-bottom: 20px; line-height: 1.6;">
+                    Coit Tower is a 210-foot tower in San Francisco offering panoramic views of the city and bay!
+                </p>
+                <p style="font-size: 1.1em; color: #666; margin-bottom: 25px;">
+                    📍 1 Telegraph Hill Blvd, San Francisco, CA 94133
+                </p>
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Coit+Tower,San+Francisco,CA" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; font-size: 1.1em; text-decoration: none; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                🗺️ Get Directions
+            </a>
         </div>
 
     </div>
