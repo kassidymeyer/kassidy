@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hi I'm Kassidy, get to know me">
+    <meta name="author" content="Kassidy">
+    <meta property="og:title" content="Kassidy's Website">
+    <meta property="og:description" content="Hi I'm Kassidy, get to know me">
+    <meta property="og:image" content="3105.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kassidy's Website">
+    <meta name="twitter:description" content="Hi I'm Kassidy, get to know me">
+    <meta name="twitter:image" content="3105.jpg">
     <title>Kassidy's Website</title>
     <style>
         * {
@@ -22,6 +32,26 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .nav-bar {
+            text-align: right;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: underline;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .nav-bar a:hover {
+            color: #ffd700;
+            transform: scale(1.05);
         }
 
         header {
@@ -78,11 +108,17 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
         .card {
             background: white;
             border-radius: 15px;
             padding: 25px;
-            margin: 20px 0;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             animation: fadeInUp 1s ease-out;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -99,27 +135,95 @@
             font-size: 1.8em;
         }
 
-        .quote-section {
+        .content-section {
             text-align: center;
         }
 
-        .quote-display {
+        .content-display {
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             padding: 20px;
             border-radius: 10px;
             margin: 15px 0;
             font-size: 1.2em;
-            font-style: italic;
             color: #333;
             min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            flex-direction: column;
         }
 
-        .quote-display:hover {
+        .content-display:hover {
             background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
+        }
+
+        .dino-image {
+            max-width: 100%;
+            max-height: 250px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .dino-name {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 10px;
+        }
+
+        .would-you-rather {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .question-text {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .option-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .option-btn {
+            background: linear-gradient(135deg, #e17055 0%, #d63031 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            min-width: 150px;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            transform: scale(1.1);
         }
 
         button {
@@ -144,43 +248,61 @@
             transform: translateY(0);
         }
 
-        .game-section {
+        .recipe-card {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.2s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .recipe-card h2 {
+            color: #d35400;
+            margin-bottom: 20px;
+            font-size: 2em;
             text-align: center;
         }
 
-        .game-board {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
+        .recipe-card h3 {
+            color: #e67e22;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
         }
 
-        .color-tile {
-            aspect-ratio: 1;
+        .recipe-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .recipe-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .recipe-card li:before {
+            content: "🍪";
+            position: absolute;
+            left: 0;
+        }
+
+        .recipe-instructions {
+            background: white;
+            padding: 15px;
             border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
-        }
-
-        .color-tile:hover {
-            transform: scale(1.1);
-            border-color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .color-tile:active {
-            transform: scale(0.95);
-        }
-
-        .score-display {
-            font-size: 1.5em;
-            color: #667eea;
-            font-weight: bold;
-            margin: 15px 0;
+            margin-top: 15px;
+            color: #2c3e50;
+            line-height: 1.8;
         }
 
         .visitor-counter {
@@ -251,14 +373,26 @@
                 font-size: 1.5em;
             }
 
-            .game-board {
-                grid-template-columns: repeat(3, 1fr);
+            .two-column-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .question-text {
+                font-size: 1.1em;
+            }
+
+            .option-buttons {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="nav-bar">
+            <a href="https://www.youtube.com/watch?v=efn6y_LbdVs" target="_blank">Resume</a>
+        </div>
+
         <header>
             <h1>Kassidy's Website</h1>
             <p class="welcome">Hello everyone.</p>
@@ -269,19 +403,65 @@
             <p>"a decimal need not be an integer"</p>
         </div>
 
-        <div class="card quote-section">
-            <h2>🎲 Random Math Quote</h2>
-            <div class="quote-display" id="quoteDisplay">Click the button to get a math quote!</div>
-            <button onclick="getNewQuote()">Get New Quote</button>
+        <div class="two-column-grid">
+            <div class="card content-section">
+                <h2>🦕 Random Dinosaur</h2>
+                <div class="content-display">
+                    <img id="dinoImage" class="dino-image" src="" alt="Random Dinosaur">
+                    <p id="dinoName" class="dino-name">Click the button!</p>
+                </div>
+                <button onclick="getNewDino()">Get New Dinosaur</button>
+            </div>
+
+            <div class="card content-section">
+                <h2>🤔 Would You Rather?</h2>
+                <div class="would-you-rather">
+                    <p class="question-text" id="questionText">Click the button!</p>
+                    <div class="option-buttons" id="optionButtons" style="display: none;"></div>
+                </div>
+                <button onclick="getNewQuestion()">New Question</button>
+            </div>
         </div>
 
-        <div class="card game-section">
-            <h2>🎮 Color Matching Game</h2>
-            <p>Click on tiles that match the target color!</p>
-            <div class="score-display">Score: <span id="score">0</span></div>
-            <div id="targetColor" style="width: 100px; height: 100px; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
-            <div class="game-board" id="gameBoard"></div>
-            <button onclick="startNewGame()">New Game</button>
+        <div class="recipe-card">
+            <h2>🍪 Kassidy's Cookie Recipe 🍪</h2>
+            
+            <h3>Instructions:</h3>
+            <div class="recipe-instructions">
+                <strong>Pre-heat oven to 375°F</strong>
+            </div>
+
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>2 sticks of butter (softened)</li>
+                <li>3/4 cup granulated sugar</li>
+                <li>3/4 cup packed brown sugar</li>
+                <li>1 tsp + a little extra vanilla extract</li>
+            </ul>
+
+            <div class="recipe-instructions">
+                <strong>Mix all that together</strong>
+            </div>
+
+            <ul>
+                <li>Add 2 eggs (mix one at a time)</li>
+                <li>1 tsp salt</li>
+                <li>1 tsp baking soda</li>
+            </ul>
+
+            <div class="recipe-instructions">
+                <strong>Mix well</strong>
+            </div>
+
+            <ul>
+                <li>Add 2 1/4 cups flour slowly</li>
+                <li>1 bag of chocolate chips</li>
+            </ul>
+
+            <div class="recipe-instructions">
+                <strong>Bake for about 8 minutes</strong><br>
+                Enjoy your delicious cookies! 😋
+            </div>
         </div>
 
         <div class="visitor-counter">
@@ -291,89 +471,173 @@
     </div>
 
     <script>
-        // Math Quotes
-        const mathQuotes = [
-            "Mathematics is the language in which God has written the universe. - Galileo Galilei",
-            "Pure mathematics is, in its way, the poetry of logical ideas. - Albert Einstein",
-            "Mathematics is not about numbers, equations, or algorithms: it is about understanding. - William Paul Thurston",
-            "The essence of mathematics is not to make simple things complicated, but to make complicated things simple. - S. Gudder",
-            "Mathematics is the music of reason. - James Joseph Sylvester",
-            "In mathematics, you don't understand things. You just get used to them. - John von Neumann",
-            "Mathematics knows no races or geographic boundaries; for mathematics, the cultural world is one country. - David Hilbert",
-            "The only way to learn mathematics is to do mathematics. - Paul Halmos",
-            "Mathematics is the most beautiful and most powerful creation of the human spirit. - Stefan Banach",
-            "Life is a math equation. In order to gain the most, you have to know how to convert negatives into positives. - Anonymous"
+        // Dinosaur Generator with dinosaur emojis and fun facts
+        const dinosaurs = [
+            {
+                name: "🦖 Tyrannosaurus Rex",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Tyrannosaurus_Rex_Holotype.jpg/800px-Tyrannosaurus_Rex_Holotype.jpg"
+            },
+            {
+                name: "🦕 Brachiosaurus",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Giraffatitan_brancai_Skelett_Museum_f%C3%BCr_Naturkunde_Berlin.jpg/800px-Giraffatitan_brancai_Skelett_Museum_f%C3%BCr_Naturkunde_Berlin.jpg"
+            },
+            {
+                name: "🦴 Triceratops",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Triceratops_skeleton.jpg/800px-Triceratops_skeleton.jpg"
+            },
+            {
+                name: "🦎 Velociraptor",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Velociraptor_dinoguy2.jpg/800px-Velociraptor_dinoguy2.jpg"
+            },
+            {
+                name: "🦴 Stegosaurus",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Stegosaurus_stenops_sophie_wiki_martyniuk.png/800px-Stegosaurus_stenops_sophie_wiki_martyniuk.png"
+            },
+            {
+                name: "🦅 Pteranodon",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Pteranodon_longiceps_life_restoration.jpg/800px-Pteranodon_longiceps_life_restoration.jpg"
+            },
+            {
+                name: "🐊 Spinosaurus",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Spinosaurus_2020_reconstruction.png/800px-Spinosaurus_2020_reconstruction.png"
+            },
+            {
+                name: "🛡️ Ankylosaurus",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Ankylosaurus_magniventris_reconstruction.png/800px-Ankylosaurus_magniventris_reconstruction.png"
+            },
+            {
+                name: "🦕 Diplodocus",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Diplodocus_carnegii.jpg/800px-Diplodocus_carnegii.jpg"
+            },
+            {
+                name: "🦖 Allosaurus",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Allosaurus_Revised.jpg/800px-Allosaurus_Revised.jpg"
+            }
         ];
 
-        function getNewQuote() {
-            const quoteDisplay = document.getElementById('quoteDisplay');
-            const randomIndex = Math.floor(Math.random() * mathQuotes.length);
-            quoteDisplay.textContent = mathQuotes[randomIndex];
-            quoteDisplay.style.animation = 'none';
+        function getNewDino() {
+            const randomIndex = Math.floor(Math.random() * dinosaurs.length);
+            const dino = dinosaurs[randomIndex];
+            const dinoImage = document.getElementById('dinoImage');
+            const dinoName = document.getElementById('dinoName');
+            
+            dinoImage.src = dino.image;
+            dinoImage.style.display = 'block';
+            dinoName.textContent = dino.name;
+            
+            dinoImage.style.animation = 'none';
             setTimeout(() => {
-                quoteDisplay.style.animation = 'fadeIn 0.5s ease-out';
+                dinoImage.style.animation = 'fadeIn 0.5s ease-out';
             }, 10);
         }
 
-        // Color Matching Game
-        let score = 0;
-        let targetColor = '';
-        let colors = [];
+        // Would You Rather Game
+        const wouldYouRatherQuestions = [
+            {
+                question: "Would you rather...",
+                option1: "Have the ability to fly",
+                option2: "Have the ability to be invisible"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Live in a world without music",
+                option2: "Live in a world without movies"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Always have to sing instead of speak",
+                option2: "Always have to dance everywhere you go"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Have unlimited pizza for life",
+                option2: "Have unlimited tacos for life"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Be able to talk to animals",
+                option2: "Be able to speak all human languages"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Live in the past",
+                option2: "Live in the future"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Have a rewind button for your life",
+                option2: "Have a pause button for your life"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Be a famous musician",
+                option2: "Be a famous actor"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Have super strength",
+                option2: "Have super speed"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Always be 10 minutes late",
+                option2: "Always be 20 minutes early"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Have a pet dragon",
+                option2: "Have a pet unicorn"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Never have to sleep",
+                option2: "Never have to eat"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Be able to control fire",
+                option2: "Be able to control water"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Live in a treehouse",
+                option2: "Live in a castle"
+            },
+            {
+                question: "Would you rather...",
+                option1: "Have unlimited money",
+                option2: "Have unlimited time"
+            }
+        ];
 
-        function generateRandomColor() {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
-            return `rgb(${r}, ${g}, ${b})`;
+        function getNewQuestion() {
+            const randomIndex = Math.floor(Math.random() * wouldYouRatherQuestions.length);
+            const question = wouldYouRatherQuestions[randomIndex];
+            
+            const questionText = document.getElementById('questionText');
+            const optionButtons = document.getElementById('optionButtons');
+            
+            questionText.textContent = question.question;
+            optionButtons.style.display = 'flex';
+            optionButtons.innerHTML = `
+                <button class="option-btn" onclick="selectOption(this)">${question.option1}</button>
+                <button class="option-btn" onclick="selectOption(this)">${question.option2}</button>
+            `;
         }
 
-        function startNewGame() {
-            score = 0;
-            document.getElementById('score').textContent = score;
-            
-            // Generate target color
-            targetColor = generateRandomColor();
-            document.getElementById('targetColor').style.backgroundColor = targetColor;
-            
-            // Generate color tiles
-            colors = [targetColor];
-            for (let i = 0; i < 11; i++) {
-                colors.push(generateRandomColor());
-            }
-            
-            // Shuffle colors
-            colors.sort(() => Math.random() - 0.5);
-            
-            // Create tiles
-            const gameBoard = document.getElementById('gameBoard');
-            gameBoard.innerHTML = '';
-            
-            colors.forEach(color => {
-                const tile = document.createElement('div');
-                tile.className = 'color-tile';
-                tile.style.backgroundColor = color;
-                tile.onclick = () => checkColor(color, tile);
-                gameBoard.appendChild(tile);
+        function selectOption(button) {
+            // Remove selected class from all buttons
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
             });
-        }
-
-        function checkColor(clickedColor, tile) {
-            if (clickedColor === targetColor) {
-                score += 10;
-                document.getElementById('score').textContent = score;
-                tile.style.border = '3px solid gold';
-                tile.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    startNewGame();
-                }, 500);
-            } else {
-                score = Math.max(0, score - 5);
-                document.getElementById('score').textContent = score;
-                tile.style.border = '3px solid red';
-                setTimeout(() => {
-                    tile.style.border = '3px solid transparent';
-                }, 300);
-            }
+            
+            // Add selected class to clicked button
+            button.classList.add('selected');
+            
+            // Show a fun message
+            setTimeout(() => {
+                alert(`Great choice! 🎉`);
+            }, 300);
         }
 
         // Visitor Counter
@@ -390,8 +654,7 @@
         // Initialize on page load
         window.onload = function() {
             updateVisitorCount();
-            startNewGame();
-            getNewQuote();
+            getNewDino();
         };
     </script>
 </body>
